@@ -1,0 +1,11 @@
+D:\Visual Studio 2019\Lab_2\bin\Debug\netcoreapp3.0\Lab_2.exe
+D:\Visual Studio 2019\Lab_2\bin\Debug\netcoreapp3.0\Lab_2.deps.json
+D:\Visual Studio 2019\Lab_2\bin\Debug\netcoreapp3.0\Lab_2.runtimeconfig.json
+D:\Visual Studio 2019\Lab_2\bin\Debug\netcoreapp3.0\Lab_2.runtimeconfig.dev.json
+D:\Visual Studio 2019\Lab_2\bin\Debug\netcoreapp3.0\Lab_2.dll
+D:\Visual Studio 2019\Lab_2\bin\Debug\netcoreapp3.0\Lab_2.pdb
+D:\Visual Studio 2019\Lab_2\obj\Debug\netcoreapp3.0\Lab_2.csprojAssemblyReference.cache
+D:\Visual Studio 2019\Lab_2\obj\Debug\netcoreapp3.0\Lab_2.AssemblyInfoInputs.cache
+D:\Visual Studio 2019\Lab_2\obj\Debug\netcoreapp3.0\Lab_2.AssemblyInfo.cs
+D:\Visual Studio 2019\Lab_2\obj\Debug\netcoreapp3.0\Lab_2.dll
+D:\Visual Studio 2019\Lab_2\obj\Debug\netcoreapp3.0\Lab_2.pdb
