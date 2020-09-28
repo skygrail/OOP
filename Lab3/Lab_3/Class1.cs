@@ -21,6 +21,21 @@ namespace Lab_3
             Console.WriteLine("Вызван статический конструктор!");
         }
 
+        public Abiturient()
+        {
+            surname = "";
+            firstName = "";
+            middleName = "";
+            addres = "";
+            telNumber = 1;
+            marks[0] = 1;
+            marks[1] = 1;
+            marks[2] = 1;
+            marks[3] = 1;
+
+
+        }
+
         public override string ToString()
         {
             return "Something break";

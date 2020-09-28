@@ -15,6 +15,9 @@ namespace Lab_3
         private string addres;
         private uint telNumber;
         private int[] marks = new int[4];
+        private int sredMark;
+        private int minMark;
+        private int maxMark;
 
         static int counterAbi = 0;
 
@@ -23,7 +26,7 @@ namespace Lab_3
             Console.WriteLine(counterAbi);
         }
 
-        public Abiturient(string surname, string firstName, string middleName, string addres, uint telNumber, int[] marks)
+        public Abiturient(string surname, string firstName, string middleName, string addres, uint telNumber, int[] marks, int sredMark, int minMark, int maxMark)
         {
             this.surname = surname;
             this.firstName = firstName;
@@ -31,8 +34,13 @@ namespace Lab_3
             this.addres = addres;
             this.telNumber = telNumber;
             this.marks = marks;
+            this.sredMark = sredMark;
+            this.minMark = minMark;
+            this.maxMark = maxMark;
 
+            id = (minMark * maxMark) % 7;
 
+            counterAbi++;
         }
 
         public int Id
@@ -83,52 +91,83 @@ namespace Lab_3
 
     }
 
-        class Program
-        {
-            static void Main(string[] args)
-            {
-                Console.WriteLine("Сколько абитуриентов будет в списке?");
-                sbyte counter = sbyte.Parse(Console.ReadLine());
+     class Program
+     {
+       static void Main(string[] args)
+       {
+          int max, min, sred;
 
-                Abiturient[] university = new Abiturient[counter];
+          Console.WriteLine("Сколько абитуриентов будет в списке?");
+          sbyte counter = sbyte.Parse(Console.ReadLine());
 
-                for (int i = 0; i < counter; i++) 
-                {
-                    Console.WriteLine($"Добавляем {i + 1} абитуриента:");
-                    university[i] = new Abiturient();
+          Abiturient[] university = new Abiturient[counter];
 
-                    Console.WriteLine("Введите имя абитуриента: ");
-                    university[i].FirstName = Console.ReadLine();
+          for (int i = 0; i < counter; i++) 
+          {
+             Console.WriteLine($"Добавляем {i + 1} абитуриента:");
+             university[i] = new Abiturient();
 
-                    Console.WriteLine("Введите фамилию абитуриента: ");
-                    university[i].Surname = Console.ReadLine();
+             Console.WriteLine("Введите имя абитуриента: ");
+             university[i].FirstName = Console.ReadLine();
 
-                    Console.WriteLine("Введите отчество абитуриента: ");
-                    university[i].MiddleName = Console.ReadLine();
+             Console.WriteLine("Введите фамилию абитуриента: ");
+             university[i].Surname = Console.ReadLine();
 
-                    Console.WriteLine("Введите адрес абитуриента: ");
-                    university[i].Addres = Console.ReadLine();
+             Console.WriteLine("Введите отчество абитуриента: ");
+             university[i].MiddleName = Console.ReadLine();
 
-                    Console.WriteLine("Введите номер абитуриента: ");
-                    university[i].TelNumber = uint.Parse(Console.ReadLine());
+             Console.WriteLine("Введите адрес абитуриента: ");
+             university[i].Addres = Console.ReadLine();
 
-                    Console.WriteLine("Введите баллы абитуриента: ");
-                    for (int k = 0; k < 4; k++)
+             Console.WriteLine("Введите номер абитуриента: ");
+             university[i].TelNumber = uint.Parse(Console.ReadLine());
+
+              Console.WriteLine("Введите баллы абитуриента: ");
+              for (int k = 0; k < 4; k++)
+              {
+                  university[i].Marks[k] = int.Parse(Console.ReadLine());
+              }
+
+               (int,int,int) mixFunc (int[] marks)
+               {
+                    int tempMax = 0, tempMin = 100, tempSred = 0, sum = 0;
+
+                    for (int k = 0; k < marks.Length; k++) 
                     {
-                        university[i].Marks[k] = int.Parse(Console.ReadLine());
+                        sum += marks[k];
+
+                        if (marks[k] <= tempMin)
+                            tempMax = marks[k];
+
+                        if (marks[k] >= tempMax)
+                            tempMax = marks[k];
+
                     }
 
-                    Console.WriteLine(university[0].ToString());
+                    tempSred = sum / marks.Length;
+
+                    (int, int, int) tuple = (tempSred, tempMin, tempMax);
+                    return tuple;
+               }
+
+                (int, int, int) forMarks = mixFunc(university[i].Marks);
+
+                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                //Занести в this.sredMark = sredMark;
+                //this.minMark = minMark;
+                //this.maxMark = maxMark;
+
+                Console.WriteLine(university[0].ToString());
 
                 //Console.WriteLine("Введите значение минимального балла: ");
                 //int checkMarks = int.Parse(Console.ReadLine());
 
 
 
-            }
+          }
 
-        }
-        }
+       }
+     }
 
       
 
