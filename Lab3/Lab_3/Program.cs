@@ -14,7 +14,7 @@ namespace Lab_3
         private string middleName;
         private string addres;
         private uint telNumber;
-        private int[] marks = new int [4];
+        private int[] marks = new int[4];
 
         static int counterAbi = 0;
 
@@ -31,7 +31,57 @@ namespace Lab_3
             this.addres = addres;
             this.telNumber = telNumber;
             this.marks = marks;
+
+
         }
+
+        public int Id
+        {
+            get
+            {
+                if (id > 0)
+                    return id;
+                else return 0;
+            }
+        }
+
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = value; }
+        }
+
+        public string FirstName
+        {
+            get { return firstName; }
+            set { firstName = value; }
+        }
+
+        public string MiddleName
+        {
+            get { return middleName; }
+            set { middleName = value; }
+        }
+
+        public string Addres
+        {
+            get { return addres; }
+            set { addres = value; }
+        }
+
+        public uint TelNumber
+        {
+            get { return telNumber; }
+            set { telNumber = value; }
+        }
+
+        public int[] Marks
+        {
+            get { return marks; }
+            set { marks = value; }
+        }
+
+    }
 
         class Program
         {
@@ -48,29 +98,38 @@ namespace Lab_3
                     university[i] = new Abiturient();
 
                     Console.WriteLine("Введите имя абитуриента: ");
-                    university[i].firstName = Console.ReadLine();
+                    university[i].FirstName = Console.ReadLine();
 
                     Console.WriteLine("Введите фамилию абитуриента: ");
-                    university[i].surname = Console.ReadLine();
+                    university[i].Surname = Console.ReadLine();
 
                     Console.WriteLine("Введите отчество абитуриента: ");
-                    university[i].middleName = Console.ReadLine();
+                    university[i].MiddleName = Console.ReadLine();
 
                     Console.WriteLine("Введите адрес абитуриента: ");
-                    university[i].addres = Console.ReadLine();
+                    university[i].Addres = Console.ReadLine();
 
                     Console.WriteLine("Введите номер абитуриента: ");
-                    university[i].telNumber = uint.Parse(Console.ReadLine());
+                    university[i].TelNumber = uint.Parse(Console.ReadLine());
 
-                    Console.WriteLine("Введите оценки абитуриента: ");
+                    Console.WriteLine("Введите баллы абитуриента: ");
                     for (int k = 0; k < 4; k++)
                     {
-                        university[i].marks[k] = int.Parse(Console.ReadLine());
+                        university[i].Marks[k] = int.Parse(Console.ReadLine());
                     }
 
                     Console.WriteLine(university[0].ToString());
-                }
+
+                //Console.WriteLine("Введите значение минимального балла: ");
+                //int checkMarks = int.Parse(Console.ReadLine());
+
+
+
             }
+
         }
-    }
+        }
+
+      
+
 }
