@@ -63,7 +63,7 @@ namespace Lab4
         {
             for (int i = 0; i < items.Length; i++)
             {
-                Console.WriteLine(this.items[i] + " ");
+                Console.Write(this.items[i] + " ");
             }
             Console.WriteLine();
         }
@@ -134,55 +134,77 @@ namespace Lab4
             return crossedSet;
         }
 
-        //public static bool operator !=(Set obj1, Set obj2)
-        //{
-        //    int counter = 0;
-        //    if (obj1.items.Length != obj2.items.Length)
-        //        return false;
-        //    else
-        //    {
-        //        foreach (int obj1it in obj1.items)
-        //        {
-        //            foreach (int obj2it in obj2.items)
-        //            {
-        //                if (obj1it == obj2it)
-        //                {
-        //                    counter++;
-        //                }
-        //            }
-        //        }
-        //    }
+        public static int operator !=(Set obj1, Set obj2)
+        {
+            int equalLenght;
+            int counter = 0;
+            int position = 0;
+            if (obj1.items.Length == obj2.items.Length)
+                equalLenght = obj1.items.Length;
+            else
+                equalLenght = 0;
 
-        //    if (obj1.items.Length == counter)
-        //    {
-        //        return true;
-        //    }
-        //}
+            int[] equalElements = new int[equalLenght];
 
-        //public static bool operator ==(Set obj1, Set obj2)
-        //{
-        //    int counter = 0;
-        //    if (obj1.items.Length != obj2.items.Length)
-        //        return false;
-        //    else
-        //    {
-        //        foreach (int obj1it in obj1.items)
-        //        {
-        //            foreach (int obj2it in obj2.items)
-        //            {
-        //                if (obj1it == obj2it)
-        //                {
-        //                    counter++;
-        //                }
-        //            }
-        //        }
-        //    }
+            if (equalLenght != 0)
+            {
+                foreach (int obj1it in obj1.items)
+                {
+                    foreach (int obj2it in obj2.items)
+                    {
+                        if (obj1it == obj2it)
+                        {
+                            counter++;
+                            equalElements[position++] = obj1it;
+                            break;
+                        }
+                    }
+                }
+            }
 
-        //    if (obj1.items.Length == counter)
-        //    {
-        //        return true;
-        //    }
-        //}
+            if (counter != equalElements.Length)
+                counter = 0;
+
+            Array.Resize<int>(ref equalElements, position);
+            Set equalSet = new Set(equalElements);
+            return counter;
+        }
+
+        public static int operator ==(Set obj1, Set obj2)
+        {
+            int equalLenght;
+            int counter = 0;
+            int position = 0;
+            if (obj1.items.Length == obj2.items.Length)
+                equalLenght = obj1.items.Length;
+            else
+                equalLenght = 0;
+
+            int[] equalElements = new int[equalLenght];
+
+            if (equalLenght != 0)
+            {
+                foreach (int obj1it in obj1.items)
+                {
+                    foreach (int obj2it in obj2.items)
+                    {
+                        if (obj1it == obj2it)
+                        {
+                            counter++;
+                            equalElements[position++] = obj1it;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (counter != equalElements.Length)
+                counter = 0;
+
+            Array.Resize<int>(ref equalElements, position);
+            Set equalSet = new Set(equalElements);
+            return counter;
+        }
 
         public static bool operator >>(Set set, int position)
         {
