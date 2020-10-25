@@ -220,6 +220,52 @@ namespace Lab4
 
     }
 
+    internal class Owner
+    {
+        private string Id { get; }
+        private string Name { get; }
+        private string Organisation { get; }
+    }
+
+    public class Date
+    {
+        private int Day { get; }
+        private int Month { get; }
+        private int Year { get; }
+
+    }
+
+    static class StaticOperation
+    {
+        public static string FindMin(this String str)
+        {
+            return " ";
+        }
+
+        public static void sortSet(this Set set)
+        {
+            int temp;
+            for (int i = 0; i < set.items.Length - 1; i++)
+            {
+                for (int j = 1; j < set.items.Length - i - 1; j++)
+                {
+                    if (set.items[j] > set.items[j + 1])
+                    {
+                        temp = set.items[j];
+                        set.items[j] = set.items[j + 1];
+                        set.items[j + 1] = temp;
+                    }
+                }
+            }
+
+            for (int i = 0; i < set.items.Length; i++)
+            {
+                Console.Write(set.items[i] + " ");
+            }
+            Console.WriteLine();
+        }
+
+    }
 }
 
 
