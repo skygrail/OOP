@@ -218,21 +218,52 @@ namespace Lab4
             return addedOnce;
         }
 
-    }
+        internal class Owner
+        {
+            private string Id { get; }
+            private string Name { get; }
+            private string Organisation { get; }
 
-    internal class Owner
-    {
-        private string Id { get; }
-        private string Name { get; }
-        private string Organisation { get; }
-    }
+            public Owner()
+            {
+                Console.WriteLine("Введите ID создателя объекта: ");
+                Id = Console.ReadLine();
+                Console.WriteLine("Введите имя создателя объекта: ");
+                Name = Console.ReadLine();
+                Console.WriteLine("Введите название организации создателя объекта: ");
+                Organisation = Console.ReadLine();
+            }
 
-    public class Date
-    {
-        private int Day { get; }
-        private int Month { get; }
-        private int Year { get; }
+            public override string ToString()
+            {
+                return $"ID владельца - {Id},\nИмя владельца - {Name},\nОрганизация - {Organisation} ";
+            }
+        }
 
+        public class Date
+        {
+            private int Day { get; }
+            private int Month { get; }
+            private int Year { get; }
+
+            public Date()
+            {
+                DateTime date = DateTime.Now;
+                Day = date.Day;
+                Month = date.Month;
+                Year = date.Year;
+            }
+
+            public override string ToString()
+            {
+                return $"Дата создания объекта\n{Day}.{Month}.{Year} ";
+            }
+
+            public static explicit operator Date(Set obj)
+            {
+                return obj.SetDate;
+            }
+        }
     }
 
     static class StaticOperation
@@ -265,6 +296,37 @@ namespace Lab4
             Console.WriteLine();
         }
 
+        public static int Summ(Set set)
+        {
+            int summ = 0;
+            foreach (int it in set.items)
+            {
+                summ += it;
+            }
+            return summ;
+        }
+
+        public static int MaxMinDiff(Set set)
+        {
+            int max = 0;
+            int min = set.items[0];
+            foreach (int it in set.items)
+            {
+                if (it > max) max = it;
+                if (it < min) min = it;
+            }
+            return (max - min);
+        }
+
+        public static int ItemsAmount(Set set)
+        {
+            int amount = 0;
+            foreach (int it in set.items)
+            {
+                amount++;
+            }
+            return amount;
+        }
     }
 }
 
