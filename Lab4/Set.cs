@@ -292,7 +292,17 @@ namespace Lab4
     {
         public static string FindMin(this String str)
         {
-            return " ";
+            Console.WriteLine("Введите строку слов (каждое слово отделять пробелом): ");
+            string sentence = Console.ReadLine();
+            string[] words = sentence.Split(' ');
+            string[] enteredWords = new string[words.Length];
+            int check = 0, minWord = 99;
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (enteredWords[i].Length < minWord)
+                    check = i;
+            }
+            return enteredWords[check];
         }
 
         public static void sortSet(this Set set)
