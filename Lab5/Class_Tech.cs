@@ -101,7 +101,149 @@ namespace Lab5
         }
     }
 
+    public sealed class PrintDevice : Product, Discounts
+    {
+        public string ProducingCountry { get; }
+        public PrintDevice(string nameOfPD, int workingLifeOfPD, string DescriptionOfPD, string producingCountry)
+        {
+            this.name = nameOfPD;
+            this.workingLife = workingLifeOfPD;
+            this.description = DescriptionOfPD;
+            ProducingCountry = producingCountry;
+        }
 
+        public string GetProducingCountry()
+        {
+            Console.WriteLine(ProducingCountry);
+            return ProducingCountry;
+        }
 
+        public override void Available()
+        {
+            Console.WriteLine("Печатающее устройство есть в наличии!!");
+        }
+        public override void unAvailable()
+        {
+            Console.WriteLine("Печатающего устройства нет в наличии!!");
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " " + ProducingCountry;
+        }
+    }
+
+    public class Skaner : Product, Discounts
+    {
+        public string ProducingCountryS { get; }
+        public Skaner(string nameOfPD, int workingLifeOfPD, string DescriptionOfPD, string producingCountrys)
+        {
+            this.name = nameOfPD;
+            this.workingLife = workingLifeOfPD;
+            this.description = DescriptionOfPD;
+            ProducingCountryS = producingCountrys;
+        }
+
+        public string GetProducingCountryS()
+        {
+            Console.WriteLine(ProducingCountryS);
+            return ProducingCountryS;
+        }
+        public override void Available()
+        {
+            Console.WriteLine("Сканер есть в наличии!!");
+        }
+        public override void unAvailable()
+        {
+            Console.WriteLine("Сканера нет в наличии!!");
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " " + ProducingCountryS;
+        }
+    }
+
+    public class Computer : Device, Shop
+    {
+        public string processorOfComp { get; }
+        public Computer(string nameOfComp, int workingLifeOfComp, string DescriptionOfComp, string processor, int miniPrice, string compModel)
+        {
+            this.name = nameOfComp;
+            this.workingLife = workingLifeOfComp;
+            this.description = DescriptionOfComp;
+            this.minPrice = miniPrice;
+            this.productModel = compModel;
+            processorOfComp = processor;
+        }
+        public override void Available()
+        {
+            Console.WriteLine("Компьютер есть в наличии!!");
+        }
+        public override void unAvailable()
+        {
+            Console.WriteLine("Компьютера нет в наличии!!");
+        }
+
+        void Shop.Instruction()
+        {
+            Console.WriteLine("Дополнительные инструкции читайте на официальном сайте");
+        }
+
+        public override void Instruction()
+        {
+            Console.WriteLine("Тут якобы дополнительные инструкции, но нет :)");
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " " + processorOfComp;
+        }
+    }
+
+    public class Tablet : Device, Shop
+    {
+        public int ScreenDiagonal { get; }
+
+        public Tablet(string nameOfComp, int workingLifeOfComp, string DescriptionOfComp, int screenDiagonal, int miniPrice, string compModel)
+        {
+            this.name = nameOfComp;
+            this.workingLife = workingLifeOfComp;
+            this.description = DescriptionOfComp;
+            this.minPrice = miniPrice;
+            this.productModel = compModel;
+            ScreenDiagonal = screenDiagonal;
+        }
+
+        public override void Available()
+        {
+            Console.WriteLine("Планшет есть в наличии!!");
+        }
+        public override void unAvailable()
+        {
+            Console.WriteLine("Планшета нет в наличии!!");
+        }
+        void Shop.Instruction()
+        {
+            Console.WriteLine("Дополнительные инструкции читайте на официальном сайте");
+        }
+        public override void Instruction()
+        {
+            Console.WriteLine("Тут якобы дополнительные инструкции, но нет :)");
+        }
+
+        public override string ToString()
+        {
+            return base.ToString() + " " + ScreenDiagonal;
+        }
+    }
+
+    class IPrinter
+    {
+        public void IAmPrinting(object someObj)
+        {
+            Console.WriteLine(someObj.ToString());
+        }
+    }
 }
 
