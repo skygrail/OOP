@@ -205,11 +205,11 @@ namespace Lab5
     {
         public int ScreenDiagonal { get; }
 
-        public Tablet(string nameOfComp, int workingLifeOfComp, string DescriptionOfComp, int screenDiagonal, int miniPrice, string compModel)
+        public Tablet(string nameOfComp, int workingLifeOfTabl, string DescriptionOfTabl, int screenDiagonal, int miniPrice, string compModel)
         {
             this.name = nameOfComp;
-            this.workingLife = workingLifeOfComp;
-            this.description = DescriptionOfComp;
+            this.workingLife = workingLifeOfTabl;
+            this.description = DescriptionOfTabl;
             this.minPrice = miniPrice;
             this.productModel = compModel;
             ScreenDiagonal = screenDiagonal;
