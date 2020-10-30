@@ -11,6 +11,21 @@ namespace Lab6
             Computer compObj = new Computer("Asus Zenbook", 10, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 5", 1500, "Ультрабук");
             Tablet tablObj = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "Tab M10 (Lenovo)");
 
+            PrintDevice newPrintObj = new PrintDevice("Canon", 7, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", "Китай");
+            Skaner newSkanObj = new Skaner("Canon CanoScan", 6, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", "Китай");
+            Computer newCompObj = new Computer("Asus Zenbook", 12, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 4", 1500, "Ультрабук");
+            Tablet newTablObj = new Tablet("Legion", 8, "-", 14.2, 780, "Tab M10");
+
+            Laboratory.Add(printObj);
+            Laboratory.Add(skanObj);
+            Laboratory.Add(compObj);
+            Laboratory.Add(tablObj);
+            Laboratory.Add(newPrintObj);
+            Laboratory.Add(newSkanObj);
+            Laboratory.Add(newCompObj);
+            Laboratory.Add(newTablObj);
+
+
             compObj.Available();
             skanObj.Available();
             printObj.priceIncrease();
@@ -21,6 +36,7 @@ namespace Lab6
 
             Console.WriteLine(new string('=', 35));
             Product prodObj = new Computer("Lenovo IdeaPad L3", 3, "Встречайте 15,6-дюймовый ноутбук Lenovo IdeaPad 3. Оснащенный передовым процессором Intel® Core™ 10-го поколения и дискретной видеокартой.", "Intel Core i3", 2200, "Универсальный");
+            Laboratory.Add(prodObj);
             Console.WriteLine("Информация о новом товаре:");
             Console.WriteLine(prodObj.ToString());
 
