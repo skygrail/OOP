@@ -203,9 +203,9 @@ namespace Lab5
 
     public class Tablet : Device, Shop
     {
-        public int ScreenDiagonal { get; }
+        public double ScreenDiagonal { get; }
 
-        public Tablet(string nameOfComp, int workingLifeOfTabl, string DescriptionOfTabl, int screenDiagonal, int miniPrice, string compModel)
+        public Tablet(string nameOfComp, int workingLifeOfTabl, string DescriptionOfTabl, double screenDiagonal, int miniPrice, string compModel)
         {
             this.name = nameOfComp;
             this.workingLife = workingLifeOfTabl;

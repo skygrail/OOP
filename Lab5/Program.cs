@@ -6,10 +6,10 @@ namespace Lab5
     {
         static void Main(string[] args)
         {
-            PrintDevice printObj = new PrintDevice("", 5, "", "");
-            Skaner skanObj = new Skaner("", 4, "", "");
-            Computer compObj = new Computer("", 10, "", "", 1500, "");
-            Tablet tablObj = new Tablet("", 6, "", 1144, 990, "");
+            PrintDevice printObj = new PrintDevice("Canon", 5, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", "Китай");
+            Skaner skanObj = new Skaner("Canon CanoScan", 4, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", "Китай");
+            Computer compObj = new Computer("Asus Zenbook", 10, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 5", 1500, "Ультрабук");
+            Tablet tablObj = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "Tab M10 (Lenovo)");
 
             compObj.Available();
             skanObj.Available();
@@ -20,7 +20,7 @@ namespace Lab5
             Console.WriteLine(tablObj.ToString());
 
             Console.WriteLine(new string('=', 35));
-            Product prodObj = new Computer("", 3, "", "", 2200, "");
+            Product prodObj = new Computer("Lenovo IdeaPad L3", 3, "Встречайте 15,6-дюймовый ноутбук Lenovo IdeaPad 3. Оснащенный передовым процессором Intel® Core™ 10-го поколения и дискретной видеокартой.", "Intel Core i3", 2200, "Универсальный");
             Console.WriteLine("Информация о новом товаре:");
             Console.WriteLine(prodObj.ToString());
 
