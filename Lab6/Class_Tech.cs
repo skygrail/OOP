@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab5
+namespace Lab6
 {
-
     interface Shop
     {
         void Producer();
@@ -54,7 +53,7 @@ namespace Lab5
 
         public override string ToString()
         {
-            return base.ToString()+ " " + name + " " + description + " " + workingLife;
+            return base.ToString() + " " + name + " " + description + " " + workingLife;
         }
 
         public virtual void priceIncrease()
@@ -71,7 +70,7 @@ namespace Lab5
         public abstract void unAvailable();
     }
 
-    public abstract class  Device : Product, Discounts, Shop
+    public abstract class Device : Product, Discounts, Shop
     {
         protected int minPrice;
         protected string productModel;
@@ -203,9 +202,9 @@ namespace Lab5
 
     public class Tablet : Device, Shop
     {
-        public int ScreenDiagonal { get; }
+        public double ScreenDiagonal { get; }
 
-        public Tablet(string nameOfComp, int workingLifeOfTabl, string DescriptionOfTabl, int screenDiagonal, int miniPrice, string compModel)
+        public Tablet(string nameOfComp, int workingLifeOfTabl, string DescriptionOfTabl, double screenDiagonal, int miniPrice, string compModel)
         {
             this.name = nameOfComp;
             this.workingLife = workingLifeOfTabl;
@@ -246,4 +245,3 @@ namespace Lab5
         }
     }
 }
-
