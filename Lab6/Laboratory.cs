@@ -38,6 +38,7 @@ namespace Lab6
                 Console.WriteLine($"Наименовение товара: {product.Name}");
                 Console.WriteLine($"Срок службы: {product.WorkingLife}");
                 Console.WriteLine($"Описание: {product.Description}");
+                Console.WriteLine($"Цена: {product.MinPrice}");
                 Console.WriteLine(new string('~', 35));
             }
         }
@@ -87,4 +88,5 @@ namespace Lab6
                 Console.WriteLine("Таких товаров нет!");
         }
     }
+
 }

@@ -28,6 +28,7 @@ namespace Lab6
         protected string name;
         protected int workingLife;
         protected string description;
+        protected int minPrice;
 
         public string Name
         {
@@ -50,7 +51,13 @@ namespace Lab6
                 return description;
             }
         }
-
+        public int MinPrice
+        {
+            get
+            {
+                return minPrice;
+            }
+        }
         public override string ToString()
         {
             return base.ToString() + " " + name + " " + description + " " + workingLife;
@@ -72,7 +79,6 @@ namespace Lab6
 
     public abstract class Device : Product, Discounts, Shop
     {
-        protected int minPrice;
         protected string productModel;
         public void Producer()
         {
@@ -103,11 +109,12 @@ namespace Lab6
     public sealed class PrintDevice : Product, Discounts
     {
         public string ProducingCountry { get; }
-        public PrintDevice(string nameOfPD, int workingLifeOfPD, string DescriptionOfPD, string producingCountry)
+        public PrintDevice(string nameOfPD, int workingLifeOfPD, string DescriptionOfPD, int miniPrice, string producingCountry)
         {
             this.name = nameOfPD;
             this.workingLife = workingLifeOfPD;
             this.description = DescriptionOfPD;
+            this.minPrice = miniPrice;
             ProducingCountry = producingCountry;
         }
 
@@ -135,11 +142,12 @@ namespace Lab6
     public class Skaner : Product, Discounts
     {
         public string ProducingCountryS { get; }
-        public Skaner(string nameOfPD, int workingLifeOfPD, string DescriptionOfPD, string producingCountrys)
+        public Skaner(string nameOfPD, int workingLifeOfPD, string DescriptionOfPD, int miniPrice, string producingCountrys)
         {
             this.name = nameOfPD;
             this.workingLife = workingLifeOfPD;
             this.description = DescriptionOfPD;
+            this.minPrice = miniPrice;
             ProducingCountryS = producingCountrys;
         }
 

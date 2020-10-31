@@ -6,13 +6,13 @@ namespace Lab6
     {
         static void Main(string[] args)
         {
-            PrintDevice printObj = new PrintDevice("Canon", 5, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", "Китай");
-            Skaner skanObj = new Skaner("Canon CanoScan", 4, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", "Китай");
+            PrintDevice printObj = new PrintDevice("Canon", 5, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", 760, "Китай");
+            Skaner skanObj = new Skaner("Canon CanoScan", 4, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", 550, "Китай");
             Computer compObj = new Computer("Asus Zenbook", 10, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 5", 1500, "Ультрабук");
             Tablet tablObj = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "Tab M10 (Lenovo)");
 
-            PrintDevice newPrintObj = new PrintDevice("Canon", 7, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", "Китай");
-            Skaner newSkanObj = new Skaner("Canon CanoScan", 6, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", "Китай");
+            PrintDevice newPrintObj = new PrintDevice("Canon", 7, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", 1030, "Китай");
+            Skaner newSkanObj = new Skaner("Canon CanoScan", 6, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", 660, "Китай");
             Computer newCompObj = new Computer("Asus Zenbook", 12, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 4", 1500, "Ультрабук");
             Tablet newTablObj = new Tablet("Legion", 8, "-", 14.2, 780, "Tab M10");
 
@@ -62,8 +62,27 @@ namespace Lab6
             foreach (var tech in ArrayTech)
             {
                 printing.IAmPrinting(tech);
-                Console.WriteLine();
+                Console.ReadKey();
             }
+
+            Console.WriteLine();
+            Console.WriteLine(new string('=', 45));
+            Console.WriteLine("============ Лабораторная №6 ============");
+            Console.WriteLine(new string('=', 45));
+
+            Laboratory.ShowList();
+            Console.WriteLine("=== Поиск техники старше заданного срока службы ===");
+            Controller.FindOldest(Laboratory.Equipment);
+            Console.WriteLine(new string('=', 35));
+
+            Console.WriteLine("=== Задание 1: Подсчитать количество каждого вида техники. ===");
+            Controller.TechCounter(Laboratory.Equipment);
+            Console.WriteLine(new string('=', 35));
+
+            Console.WriteLine("=== Задание 2: Вывести список техники в порядке убывания цены. ===");
+            Controller.PriceToMin(Laboratory.Equipment);
+            Laboratory.ShowList();
+            Console.WriteLine(new string('=', 35));
         }
     }
 }
