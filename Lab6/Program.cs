@@ -83,6 +83,12 @@ namespace Lab6
             Controller.PriceToMin(Laboratory.Equipment);
             Laboratory.ShowList();
             Console.WriteLine(new string('=', 35));
+
+            Console.WriteLine();
+            Console.WriteLine("Добавление нового объекта путём чтения данных из текстового файла: ");
+            Product compObjFromFile = (Controller.ReadFromFile(Laboratory.Equipment));
+            Console.WriteLine(compObjFromFile.ToString());
+
         }
     }
 }
