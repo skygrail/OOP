@@ -72,7 +72,7 @@ namespace Lab5
 
                 try
                 {
-                    Computer compObj1 = new Computer("Asus Zenbook", 10, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 5", 1500, "Ультрабук");
+                    Computer compObj1 = new Computer("Asus Zenbook", 10, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 5", 400, "Ультрабук");
                 }
                 catch (IsNotRightPrice ex)
                 {
@@ -91,10 +91,10 @@ namespace Lab5
                 }
                 Console.WriteLine(new string('~', 45));
 
-                Tablet tablObj2 = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "Tab M10 (Lenovo)");
+                
                 try
                 {
-                    tablObj2.scrdiagonal = 3;
+                    Tablet tablObj2 = new Tablet("Lenovo M10 Plus", 6, "-", 1, 990, "Tab M10 (Lenovo)");
                 }
                 catch (IsNotScreenDiagonal ex)
                 {
@@ -146,8 +146,10 @@ namespace Lab5
             }
             finally
             {
-                Console.WriteLine("End of program.");
+                Console.WriteLine("End of try/catch blocks.");
             }
+
+            Debug.Assert(true, "End of program.");
         }
     }
 }

@@ -222,7 +222,7 @@ namespace Lab5
             get {return scrdiagonal; }
             set 
             { 
-                if(value <= 3)
+                if(value < 3)
                 {
                     throw new IsNotScreenDiagonal("Недопустимое значение для диагонали экрана", (double)value);
                 }
