@@ -44,6 +44,14 @@ namespace Lab5
             {
                 return workingLife;
             }
+            set
+            {
+                if (value > 11)
+                {
+                    throw new WrongWorkingLifeValue("Недопустимое значение для срока службы", (int)value);
+                }
+                else workingLife = value;
+            }
         }
         public string Description
         {
@@ -173,7 +181,11 @@ namespace Lab5
             this.name = nameOfComp;
             this.workingLife = workingLifeOfComp;
             this.description = DescriptionOfComp;
-            this.minPrice = miniPrice;
+            if (miniPrice <= 500) 
+            {
+                throw new IsNotRightPrice("Недопустимое значение для стоимости товара", miniPrice);
+            }
+            else this.minPrice = miniPrice;
             this.productModel = compModel;
             processorOfComp = processor;
         }
@@ -204,7 +216,19 @@ namespace Lab5
 
     public class Tablet : Device, Shop
     {
-        public double ScreenDiagonal { get; }
+        public double scrdiagonal;
+        public double ScreenDiagonal 
+        { 
+            get {return scrdiagonal; }
+            set 
+            { 
+                if(value <= 3)
+                {
+                    throw new IsNotScreenDiagonal("Недопустимое значение для диагонали экрана", (double)value);
+                }
+                else scrdiagonal = value; 
+            }
+        }
 
         public Tablet(string nameOfComp, int workingLifeOfTabl, string DescriptionOfTabl, double screenDiagonal, int miniPrice, string compModel)
         {
@@ -212,7 +236,11 @@ namespace Lab5
             this.workingLife = workingLifeOfTabl;
             this.description = DescriptionOfTabl;
             this.minPrice = miniPrice;
-            this.productModel = compModel;
+            if (compModel.Length <=1)
+            {
+                throw new IsNotRightModel("НЕдопустимое значение для модели", compModel);
+            }
+            else this.productModel = compModel;
             ScreenDiagonal = screenDiagonal;
         }
 

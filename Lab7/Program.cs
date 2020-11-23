@@ -62,7 +62,7 @@ namespace Lab5
                 Console.WriteLine(new string('~', 45));
                 try
                 {
-                    Tablet tablObj1 = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "Tab M10 (Lenovo)");
+                    Tablet tablObj1 = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "M");
                 }
                 catch (IsNotRightModel nam)
                 {
@@ -80,6 +80,27 @@ namespace Lab5
                 }
                 Console.WriteLine(new string('~', 45));
 
+                Skaner skanObj1 = new Skaner("Canon CanoScan", 4, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", "Китай");
+                try
+                {
+                    skanObj1.WorkingLife = 17;
+                }
+                catch (WrongWorkingLifeValue ex)
+                {
+                    Console.WriteLine($"{ex.Message}\n{ex.Source}\n{ex.StackTrace}");
+                }
+                Console.WriteLine(new string('~', 45));
+
+                Tablet tablObj2 = new Tablet("Lenovo M10 Plus", 6, "-", 10.3, 990, "Tab M10 (Lenovo)");
+                try
+                {
+                    tablObj2.scrdiagonal = 3;
+                }
+                catch (IsNotScreenDiagonal ex)
+                {
+                    Console.WriteLine($"{ex.Message}\n{ex.Source}\n{ex.StackTrace}");
+                }
+                Console.WriteLine(new string('~', 45));
 
 
             }
