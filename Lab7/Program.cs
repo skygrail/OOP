@@ -144,6 +144,10 @@ namespace Lab5
             {
                 Console.WriteLine($"{ex.Message}\n{ex.Source}\n{ex.StackTrace}");
             }
+            finally
+            {
+                Console.WriteLine("End of program.");
+            }
         }
     }
 }
