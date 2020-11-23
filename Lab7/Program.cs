@@ -102,7 +102,43 @@ namespace Lab5
                 }
                 Console.WriteLine(new string('~', 45));
 
+                PrintDevice printObj = new PrintDevice("Canon", 4, "Устройство PIXMA MG2540S «Все в одном» для ежедневной печати, сканирования и копирования.", "Китай");
+                Skaner skanObj = new Skaner("CanoScan", 0, "Легкий и компактный планшетный сканер формата A4 со стильным дизайном Canon CanoScan LiDE 300.", "Китай");
+                Computer compObj = new Computer("Asus Vivobook", 8, "Креативность, стиль, инновационность – эти качества воплощает новый ZenBook 14.", "AMD Ryzen 5", 2000, "Ультрабук");
+                Tablet tablObj = new Tablet("Lenovo E5", 6, "-", 6.7, 1100, "Tab M10 (Lenovo)");
 
+                Product[] Technic = new Product[]{ printObj, skanObj, compObj, tablObj};
+
+                try
+                {
+                    Console.WriteLine(Technic[5].Name);
+                }
+                catch(IndexOutOfRangeException ex)
+                {
+                    Console.WriteLine($"{ex.Message}\n{ex.Source}\n{ex.StackTrace}");
+                }
+                Console.WriteLine(new string('~', 45));
+
+                try
+                {
+                    object obj = skanObj.Name;
+                    int name = (int)obj;
+                }
+                catch(InvalidCastException ex)
+                {
+                    Console.WriteLine($"{ex.Message}\n{ex.Source}\n{ex.StackTrace}");
+                }
+                Console.WriteLine(new string('~', 45));
+
+                try
+                {
+                    int problem = printObj.WorkingLife / skanObj.WorkingLife;
+                }
+                catch(DivideByZeroException ex)
+                {
+                    Console.WriteLine($"{ex.Message}\n{ex.Source}\n{ex.StackTrace}");
+                }
+                Console.WriteLine(new string('~', 45));
             }
             catch (Exception ex)
             {
