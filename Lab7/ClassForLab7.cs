@@ -22,7 +22,7 @@ namespace Lab5
         }
     }
 
-    class WrongWorkingLifeValue : ArgumentOutOfRangeException
+    class WrongWorkingLifeValue : Exception
     {
         int Value { get; set; }
         public WrongWorkingLifeValue(string message, int value) : base(message)
